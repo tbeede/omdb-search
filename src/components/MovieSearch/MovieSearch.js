@@ -29,12 +29,11 @@ class MovieSearch extends React.Component {
             .then((res) => res.json())
             .then((response) => {
 
-                // update state with API data
                 let resultList = []
 
                 resultList = (
-                    response.Search.map(item => (
-                        <MovieTile movieInfo={item} />
+                    response.Search.map((item, index) => (
+                        <MovieTile movieInfo={item} key={index} />
                     ))
                 )
                 this.setState({
